@@ -13,6 +13,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private PlayerInput playerInput;
 
 
+
     #endregion
 
     #region Photon Network Overrides
