@@ -10,52 +10,33 @@ public class AssignPlayer : MonoBehaviour
     public int playerOneScore;
     public int playerTwoScore;
     [SerializeField] Text playerOneDisplay;
-    [SerializeField] Text playerTwoDisplay;
-    public PlayerInput[] players;
+    [SerializeField] Text playerTwoDisplay;    
+    public PlayerInput player;
     
     void Start()
-    {
-        players = FindObjectsOfType<PlayerInput>();
-
-        Debug.Log("players visible =" + players.Length);
-        if(players.Length == 1)
+    {   
+        player = FindObjectOfType<PlayerInput>();
+        Debug.Log("player is player one " + player.IsPlayerOne);
+        if (player.IsPlayerOne)
         {
-            foreach (PlayerInput player in players)
-            {
-                if (player.IsPlayerOne)
-                {
-                    playerOne = player.gameObject;                    
-                }
-                
-            }
+            playerOne = player.gameObject;
         }
-        if(players.Length == 2)
+        else
         {
-            foreach (PlayerInput player in players)
-            {
-                if (player.IsPlayerOne)
-                {
-                    playerOne = player.gameObject;                    
-                }
-                if (!player.IsPlayerOne)
-                {
-                    playerTwo = player.gameObject;                    
-                }
-            }
-
+            playerTwo = player.gameObject;
         }
+        
 
     }
 
     void Update()
     {
-        if(players.Length == 1)
+        if (playerOne)
         {
             playerOneDisplay.text = playerOne.GetComponent<PlayerInput>().score.ToString();
         }
-        if(players.Length == 2)
+        if (playerTwo)
         {
-            playerOneDisplay.text = playerOne.GetComponent<PlayerInput>().score.ToString();
             playerTwoDisplay.text = playerTwo.GetComponent<PlayerInput>().score.ToString();
         }
         

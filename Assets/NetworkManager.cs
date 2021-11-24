@@ -42,7 +42,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
         if (PhotonNetwork.PlayerList.Length == 2)
         {   
-            playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
+            playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();            
             playerInput.IsPlayerOne = false;
             Debug.Log("this code will not run until P2 is here");
 
