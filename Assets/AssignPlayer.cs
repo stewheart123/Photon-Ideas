@@ -31,13 +31,16 @@ public class AssignPlayer : MonoBehaviour
 
     void Update()
     {
+        
         if (playerOne)
         {
             playerOneDisplay.text = playerOne.GetComponent<PlayerInput>().score.ToString();
+            playerOneScore = playerOne.GetComponent<PlayerInput>().score;
         }
         if (playerTwo)
         {
             playerTwoDisplay.text = playerTwo.GetComponent<PlayerInput>().score.ToString();
+            playerTwoScore = playerTwo.GetComponent<PlayerInput>().score;
         }
         
     }

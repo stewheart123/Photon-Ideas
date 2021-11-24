@@ -9,6 +9,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     #region Network Objects and variables
 
     [SerializeField] GameObject networkUi;
+
     private PlayerInput playerInput;
 
 
@@ -32,20 +33,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a Room");
         base.OnJoinedRoom();
+        
+        PhotonNetwork.Instantiate("Player", new Vector3(0f, 0f, 0f), new Quaternion(0f, 0f, 0f, 0f));
 
-        if(PhotonNetwork.PlayerList.Length == 1)
-        {
-            //move this line of code to send if statement later
-            PhotonNetwork.Instantiate("Network UI", networkUi.transform.position, networkUi.transform.rotation);
-            playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();
-            playerInput.IsPlayerOne = true;
-        }
         if (PhotonNetwork.PlayerList.Length == 2)
-        {   
-            playerInput = GameObject.Find("Player").GetComponent<PlayerInput>();            
-            playerInput.IsPlayerOne = false;
-            Debug.Log("this code will not run until P2 is here");
-
+        {
+            PhotonNetwork.Instantiate("Network UI", networkUi.transform.position, networkUi.transform.rotation);            
         }
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)

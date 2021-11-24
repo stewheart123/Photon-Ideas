@@ -393,7 +393,7 @@ MonoBehaviour:
   playerTwoScore: 0
   playerOneDisplay: {fileID: 4456882038777615474}
   playerTwoDisplay: {fileID: 1588477081660597036}
-  players: []
+  player: {fileID: 0}
 --- !u!1 &6486522496390706739
 GameObject:
   m_ObjectHideFlags: 0
