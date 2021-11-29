@@ -37,10 +37,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         
         PhotonNetwork.Instantiate("Player", new Vector3(0f, 0f, 0f), new Quaternion(0f, 0f, 0f, 0f));
 
-        if (PhotonNetwork.PlayerList.Length == 2)
-        {
-            PhotonNetwork.Instantiate("Network UI", networkUi.transform.position, networkUi.transform.rotation);            
-        }
+        //if (PhotonNetwork.PlayerList.Length == 2)
+        //{
+        //    PhotonNetwork.Instantiate("Network UI", networkUi.transform.position, networkUi.transform.rotation);            
+        //}
     }
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {

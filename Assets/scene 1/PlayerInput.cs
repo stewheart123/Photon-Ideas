@@ -11,24 +11,23 @@ public class PlayerInput : MonoBehaviour
     private PhotonView photonView;
     [Tooltip("The local player instance. Use this to know if the local player is represented in the Scene")]
     public static GameObject LocalPlayerInstance;
-
+    private AssignPlayer assignPlayer;
 
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
-        if (photonView.IsMine)
-        {
-            //havent done anything apart from assign this variable;
-            LocalPlayerInstance = this.gameObject;
+
             if (PhotonNetwork.PlayerList.Length == 1)
             {
                 IsPlayerOne = true;
             }
-            else
+            if(PhotonNetwork.PlayerList.Length ==2)
             {
                 IsPlayerOne = false;
+                assignPlayer = GameObject.FindObjectOfType<AssignPlayer>();
+                assignPlayer.SetupUI();
             }
-        }
+            
     }
 
     void Update()
